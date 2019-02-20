@@ -4,18 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using ZXing;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
+using System.Threading;
 
 using ZXing.QrCode;
 public class QRScanner : MonoBehaviour
 {
+    Text text;
     String model;
     private WebCamTexture camTexture;
     private Rect screenRect;
     // Start is called before the first frame update
     void Start()
     {
-        screenRect = new Rect(600, 100, 800, 800);
+        screenRect = new Rect(500, 100, 900, 900);
         camTexture = new WebCamTexture();
         camTexture.requestedHeight = Screen.height;
         camTexture.requestedWidth = Screen.width;
@@ -23,19 +25,24 @@ public class QRScanner : MonoBehaviour
         {
             camTexture.Play();
         }
+        text = GameObject.Find("BikeModelText").GetComponent<Text>();
     }
     public void QR()
     {
+
         try
         {
             IBarcodeReader barcodeReader = new BarcodeReader();
             // decode the current frame
             var result = barcodeReader.Decode(camTexture.GetPixels32(), camTexture.width, camTexture.height);
-            model = result.Text;
-            print(model);
+            //PlayerPrefs.SetString("SelectedModel", result.Text);
             camTexture.Stop();
+            Thread.Sleep(1000);
+            PlayerPrefs.SetString("Model",""+result.Text);
         }
         catch (Exception ex) { if (model != null) print(model); }
+
+        SceneManager.LoadScene("Home");
     }
 
     void OnGUI()
@@ -49,24 +56,9 @@ public class QRScanner : MonoBehaviour
             // decode the current frame
             var result = barcodeReader.Decode(camTexture.GetPixels32(), camTexture.width, camTexture.height);
             model = result.Text;
-            print(model);
+            text.text = model;
         }
-        catch (Exception ex) { if (model != null) print(model); }
+        catch (Exception ex) { print(ex.Data); }
     }
 
-    public void Des()
-    {
-        DestroyImmediate(camTexture);
-        Camera c = GameObject.Find("Camera").GetComponent<Camera>();
-        print("Close");
-        c.enabled = false;
-    }
-    public void DeleteAll()
-    {
-        GameObject[] GameObjects = (FindObjectsOfType<GameObject>() as GameObject[]);
-        for (int i = 0; i < GameObjects.Length; i++)
-        {
-            Destroy(GameObjects[i]);
-        }
-    }
 }
