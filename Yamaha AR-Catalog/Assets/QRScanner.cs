@@ -29,20 +29,12 @@ public class QRScanner : MonoBehaviour
     }
     public void QR()
     {
-
-        try
-        {
-            IBarcodeReader barcodeReader = new BarcodeReader();
-            // decode the current frame
-            var result = barcodeReader.Decode(camTexture.GetPixels32(), camTexture.width, camTexture.height);
-            //PlayerPrefs.SetString("SelectedModel", result.Text);
+        if (text != null && model!=null) {
+            PlayerPrefs.SetString("key", model);
             camTexture.Stop();
-            Thread.Sleep(1000);
-            PlayerPrefs.SetString("Model",""+result.Text);
+            Thread.Sleep(3000);
+            SceneManager.LoadScene("Home");
         }
-        catch (Exception ex) { if (model != null) print(model); }
-
-        SceneManager.LoadScene("Home");
     }
 
     void OnGUI()
