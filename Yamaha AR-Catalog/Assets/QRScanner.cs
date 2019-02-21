@@ -32,7 +32,7 @@ public class QRScanner : MonoBehaviour
         if (text != null && model!=null) {
             PlayerPrefs.SetString("key", model);
             camTexture.Stop();
-            Thread.Sleep(3000);
+            //Thread.Sleep(3000);
             SceneManager.LoadScene("Home");
         }
     }
@@ -48,7 +48,8 @@ public class QRScanner : MonoBehaviour
             // decode the current frame
             var result = barcodeReader.Decode(camTexture.GetPixels32(), camTexture.width, camTexture.height);
             model = result.Text;
-            text.text = model;
+            string[] list = model.Split(',');
+            text.text = list[2];
         }
         catch (Exception ex) { print(ex.Data); }
     }
