@@ -21,6 +21,5 @@ public class Home : MonoBehaviour
     void Update()
     {
         models[0].SetActive(true);
-        print(text);
     }
 }
