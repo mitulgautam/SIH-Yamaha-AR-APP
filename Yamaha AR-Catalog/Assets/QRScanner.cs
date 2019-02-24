@@ -32,8 +32,13 @@ public class QRScanner : MonoBehaviour
         if (text != null && model!=null) {
             PlayerPrefs.SetString("key", model);
             camTexture.Stop();
-            //Thread.Sleep(3000);
-            SceneManager.LoadScene("Home");
+            try
+            {
+                SceneManager.LoadSceneAsync(1);
+            } catch (Exception e)
+            {
+                print(e);
+            } finally{QR(); }
         }
     }
 

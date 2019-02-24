@@ -4,16 +4,46 @@ using UnityEngine;
 
 public class TouchRotate : MonoBehaviour
 {
-    Vector3 mPrevPos = Vector3.zero;
-    Vector3 mPosDelta = Vector3.zero;
+    public float moveSpeed = 10f;
+    public float turnSpeed = 50f;
+    private Vector2 firstPosition;
+    private Vector2 lastPosition;
+
+    void Start()
+    {
+        Input.simulateMouseWithTouches = true;
+    }
 
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.touchCount > 0)
         {
-            mPosDelta = Input.mousePosition - mPrevPos;
-            transform.Rotate(transform.up, -Vector3.Dot(mPosDelta, Camera.main.transform.right), Space.World);
+            foreach (Touch touch1 in Input.touches)
+            {
+                if (touch1.phase == TouchPhase.Began)
+                {
+                    firstPosition = touch1.position;
+                    lastPosition = touch1.position;
+                }
+                if (touch1.phase == TouchPhase.Moved)
+                {
+                    lastPosition = touch1.position;
+                }
+                if (touch1.phase == TouchPhase.Ended)
+                {
+
+                    if (firstPosition.y - lastPosition.y < -80)
+                    {
+                        //Up
+                    }
+                    else
+                    {
+                        //Down
+                    }
+
+                }
+
+            }
         }
-        mPrevPos = Input.mousePosition;
-    }
+}
 }

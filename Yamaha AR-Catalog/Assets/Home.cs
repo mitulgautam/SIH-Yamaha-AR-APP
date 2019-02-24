@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Home : MonoBehaviour
 {
@@ -42,6 +43,11 @@ public class Home : MonoBehaviour
         textField[1].text = mileage;
         textField[2].text = enginePower;
         textField[3].text = modelName;
+    }
+    public void back()
+    {
+        SceneManager.UnloadSceneAsync(1);
+        SceneManager.LoadSceneAsync(0);
     }
     // Update is called once per frame
 
