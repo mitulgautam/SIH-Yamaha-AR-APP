@@ -4,46 +4,14 @@ using UnityEngine;
 
 public class TouchRotate : MonoBehaviour
 {
-    public float moveSpeed = 10f;
-    public float turnSpeed = 50f;
-    private Vector2 firstPosition;
-    private Vector2 lastPosition;
-
-    void Start()
-    {
-        Input.simulateMouseWithTouches = true;
-    }
+    public float angle;
 
     void Update()
     {
-        if (Input.touchCount > 0)
+        if (Input.touches.Length == 1 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
-            foreach (Touch touch1 in Input.touches)
-            {
-                if (touch1.phase == TouchPhase.Began)
-                {
-                    firstPosition = touch1.position;
-                    lastPosition = touch1.position;
-                }
-                if (touch1.phase == TouchPhase.Moved)
-                {
-                    lastPosition = touch1.position;
-                }
-                if (touch1.phase == TouchPhase.Ended)
-                {
-
-                    if (firstPosition.y - lastPosition.y < -80)
-                    {
-                        //Up
-                    }
-                    else
-                    {
-                        //Down
-                    }
-
-                }
-
-            }
+            angle = -Input.GetTouch(0).deltaPosition.x+.05f;
+            transform.rotation *= Quaternion.AngleAxis(angle, Vector3.up*.01f);
         }
-}
+    }
 }

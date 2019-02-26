@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Info.unity
     guid: 690a972dd9c12494c81ec061a30be9a4
+  - enabled: 1
+    path: Assets/Scenes/StomtPopupExample.unity
+    guid: 0258b164028791241b91c3185ada490a
   m_configObjects: {}
