@@ -8,19 +8,16 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Home.unity
-    guid: b072e89eb134c18499d291476876c821
+    path: Assets/Scenes/Start.unity
+    guid: f7f74ca0f21f6a243a8ea41f7bb55c7e
   - enabled: 1
     path: Assets/Scenes/ScanQR.unity
     guid: e8d2731e63cecdf4a953b5584aab40c5
   - enabled: 1
-    path: Assets/Scenes/Feedback.unity
-    guid: 6726783161943b348a7b456b14a35490
-  - enabled: 1
-    path: Assets/Scenes/Info.unity
-    guid: 690a972dd9c12494c81ec061a30be9a4
-  - enabled: 1
-    path: Assets/Scenes/StomtPopupExample.unity
-    guid: 0258b164028791241b91c3185ada490a
+    path: Assets/Scenes/Home.unity
+    guid: b072e89eb134c18499d291476876c821
   m_configObjects: {}

@@ -12,12 +12,12 @@ public class QRScanner : MonoBehaviour
 {
     Text text;
     String model;
-    private WebCamTexture camTexture;
+    public WebCamTexture camTexture;
     private Rect screenRect;
     // Start is called before the first frame update
     void Start()
     {
-        screenRect = new Rect(500, 100, 900, 900);
+        screenRect = new Rect(Screen.width/4,Screen.height/4,Screen.width/2,Screen.height/2);
         camTexture = new WebCamTexture();
         camTexture.requestedHeight = Screen.height;
         camTexture.requestedWidth = Screen.width;
@@ -29,19 +29,28 @@ public class QRScanner : MonoBehaviour
     }
     public void QR()
     {
-        if (text != null && model!=null) {
-            PlayerPrefs.SetString("key", model);
-            camTexture.Stop();
+        if (text != null && model != null)
+        {
+            
             try
             {
-                SceneManager.LoadSceneAsync(1);
-            } catch (Exception e)
+                PlayerPrefs.SetString("key", model);
+                camTexture.Stop();
+                SceneManager.LoadSceneAsync("Home");
+                
+            }
+            catch (Exception e)
             {
                 print(e);
-            } finally{QR(); }
+            }
         }
     }
-
+     public void goBack()
+    {
+        camTexture.Stop();
+        SceneManager.UnloadScene("ScanQR");
+        SceneManager.LoadScene("Start");
+    }
     void OnGUI()
     {
         // drawing the camera on screen
