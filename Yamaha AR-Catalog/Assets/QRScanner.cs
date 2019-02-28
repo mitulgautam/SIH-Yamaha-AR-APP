@@ -6,13 +6,12 @@ using ZXing;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Threading;
-
 using ZXing.QrCode;
 public class QRScanner : MonoBehaviour
 {
     Text text;
     String model;
-    public WebCamTexture camTexture;
+     WebCamTexture camTexture;
     private Rect screenRect;
     // Start is called before the first frame update
     void Start()

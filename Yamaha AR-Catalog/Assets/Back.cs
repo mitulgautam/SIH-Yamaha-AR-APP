@@ -9,7 +9,6 @@ public class Back : MonoBehaviour
     public void goBack()
     {
         if(unload=="ScanQR")
-        new QRScanner().camTexture.Stop();
         SceneManager.UnloadSceneAsync(unload);
         SceneManager.LoadSceneAsync(load);
     }
