@@ -48,7 +48,7 @@ public class QRScanner : MonoBehaviour
      public void goBack()
     {
         camTexture.Stop();
-        SceneManager.UnloadScene("ScanQR");
+        SceneManager.UnloadSceneAsync("ScanQR");
         SceneManager.LoadScene("Start");
     }
     void OnGUI()
@@ -63,7 +63,7 @@ public class QRScanner : MonoBehaviour
             var result = barcodeReader.Decode(camTexture.GetPixels32(), camTexture.width, camTexture.height);
             model = result.Text;
             string[] list = model.Split(',');
-            text.text = list[2];
+            text.text = list[2];//for bike model shown on screen
         }
         catch (Exception ex) { print(ex.Data); }
     }
