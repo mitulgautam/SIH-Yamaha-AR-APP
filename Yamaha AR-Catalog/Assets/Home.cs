@@ -14,7 +14,8 @@ public class Home : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() { 
-         text = PlayerPrefs.GetString("key");
+         text = PlayerPrefs.GetString("Key");
+        print(text);
         string[] list = text.Split(',');
         modelNumber = int.Parse(list[0]);
         engineType = list[1];
@@ -22,11 +23,12 @@ public class Home : MonoBehaviour
         mileage = list[3];
         enginePower = list[4];
         color = new string[int.Parse(list[5])];
+        textField[1].text = list[6+int.Parse(list[5])];
         for(int i = 0; i < int.Parse(list[5]); i++)
         {
             color[i] = list[6 + i];
         }
-                textField[3].text = modelName;
+                textField[0].text = modelName;
         models[modelNumber].SetActive(true);
     }
     

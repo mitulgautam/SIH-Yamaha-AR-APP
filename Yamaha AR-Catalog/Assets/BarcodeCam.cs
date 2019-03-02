@@ -29,7 +29,6 @@ public class BarcodeCam : MonoBehaviour
 
             PlayerPrefs.SetString("Key", ScanResult);
             OnDestroy();
-            SceneManager.UnloadSceneAsync("ScanQR");
             SceneManager.LoadScene("Home");
         }
     }

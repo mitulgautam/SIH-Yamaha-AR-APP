@@ -11,7 +11,7 @@ public class ColorCode : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string text = PlayerPrefs.GetString("key");
+        string text = PlayerPrefs.GetString("Key");
         string[] list = text.Split(',');
         c = new Color[int.Parse(list[colpos])];
         for (int i = 0; i < int.Parse(list[colpos]); i++)
@@ -22,9 +22,9 @@ public class ColorCode : MonoBehaviour
         { 
              color[i].GetComponent<Image>().color = c[i];   //component example image game object
         }
-        for (int i = int.Parse(list[5]); i < 4; i++)
+        for (int i = int.Parse(list[5]); i < 5; i++)
         {
-            transform.GetChild(i).gameObject.SetActive(false);
+            transform.GetChild(i+1).gameObject.SetActive(false);
         }
     }
 }

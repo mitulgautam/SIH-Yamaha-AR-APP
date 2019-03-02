@@ -5,11 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class Back : MonoBehaviour
 {
-    public string load, unload;
+    public string load;
     public void goBack()
     {
-        if(unload=="ScanQR")
-        SceneManager.UnloadSceneAsync(unload);
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
         SceneManager.LoadSceneAsync(load);
     }
 }

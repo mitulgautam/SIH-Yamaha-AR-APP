@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="hello"/>
+
+</Tracking>
+
+<Assembly name="hellos_assembly" assemblyId="7a0c1996ed3c47c990e6b5886bc53126">
+<Part name="hello" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="viewpoint_0001" translation="-12.3314 10.9836 181.973" rotation="AD: 0.9999999999999398 0.000006132121781124613 -0.05667063626367802 180.012">
+
+</EntryPoint>
+<EntryPoint name="viewpoint_0002" translation="-100.086 10.9696 246.877" rotation="AD: 0.9999999992441199 0.00007092568133144325 -0.655467003420693 180.01">
+
+</EntryPoint>
+<EntryPoint name="viewpoint_0003" translation="-87.7541 10.9461 355.326" rotation="AD: -0.9999999816375236 -0.0002146170251116883 1.9834053856406173 179.994">
+
+</EntryPoint>
+<EntryPoint name="viewpoint_0004" translation="12.3314 10.9367 398.871" rotation="AD: 0.9999981829558705 -0.0019093863112206427 17.64579064019996 180.001">
+
+</EntryPoint>
+<EntryPoint name="viewpoint_0005" translation="100.086 10.9507 333.967" rotation="AD: 0.9999999904687927 -0.00016508280671322654 1.5256297944735209 180.007">
+
+</EntryPoint>
+<EntryPoint name="viewpoint_0006" translation="87.7541 10.9742 225.518" rotation="AD: 0.9999999996983786 -0.00005455583236263542 0.5041833548379161 180.011">
+
+</EntryPoint>
+
+</Assembly>
+
+</QCARConfig>
